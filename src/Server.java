@@ -2,11 +2,9 @@ import java.io.IOException;
 import java.net.*;
 
 public class Server {
-	
 	public Server(int count) {
 		ServerSocket sc = null;
 		Socket s = null;
-		
 		try {
 			sc = new ServerSocket(7777);
 			while(true) {
@@ -20,12 +18,11 @@ public class Server {
 					} catch (Exception e) {
 						e.printStackTrace();
 						}
-				} 
+			} 
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
-		
 		try {
 			sc.close();
 		} catch (IOException e) {
