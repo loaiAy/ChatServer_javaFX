@@ -7,9 +7,7 @@ public class ClientThread extends Thread {
 	private String ip;
 	public Data message;
 	private Client c;
-    private Socket clientSocket;
-
-	
+    	private Socket clientSocket;
 	public ClientThread(Socket socket, clientController cont, String ip, Client c, Data message1) {
         this.clientSocket = socket;
 		this.cont = cont;
@@ -23,7 +21,8 @@ public class ClientThread extends Thread {
 		try{
 			handleReadAndWrite(clientSocket);
 		} catch (Exception e) { 
-			e.printStackTrace(); }	
+			e.printStackTrace(); 
+			}	
 	}  
 
 	public void handleReadAndWrite(Socket s) throws Exception {
@@ -44,18 +43,17 @@ public class ClientThread extends Thread {
 		sleep(3000);
 		cont.getTextArea().clear();
 		String mess;
-		
 		while(!cont.getTextField().isDisabled()) {
 			
 			//calling readfromuser method to get user message
 			mess = this.readFromUser();
 			message.setMessage1(mess);
+			
 			//send data to the server
 			objOutputStream.writeObject(message);
 				
 			// get updated Data from server
 			message = (Data)objInputStream.readObject();
-			
 			if(!message.getMessage1().equals("")) {
 				this.cont.getTextArea().appendText(message.getMessage1());
 			}
