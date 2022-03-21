@@ -2,7 +2,6 @@ import java.io.*;
 import java.net.Socket;
 
 public class ServerThread extends Thread {
-	
 	private boolean connect = true;
 	private Socket s = null;
 	
@@ -15,8 +14,7 @@ public class ServerThread extends Thread {
 	public ServerThread(Socket socket) throws Exception {
 		this.s = socket;
 		outputStream = s.getOutputStream();
-		inputStream = s.getInputStream();
-		
+		inputStream = s.getInputStream();	
 		start();
 	}
 	
