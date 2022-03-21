@@ -12,7 +12,6 @@ public class Chat extends Application{
 		Scene scene = new Scene(root); 
 		stage.setTitle("Chat"); 
 		stage.setScene(scene);
-		
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		stage.show(); 
 		alert.setTitle("log in");
