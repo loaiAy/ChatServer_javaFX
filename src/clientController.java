@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,15 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 
 public class clientController {
-	
 	Alert alert = new Alert(Alert.AlertType.ERROR);
-	
 	private String computerName = "";
-	
 	private String port = "";
-	
 	private String serverPort = "7777";
-	
 	private Client c;
 	
 	@FXML
