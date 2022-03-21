@@ -4,12 +4,10 @@ public class Client {
 	private String port;
 	private Data d;
 	
-	
 	public Client(String name, String port, Data d) {
 		this.computerName = name;
 		this.port = port;
 		this.setD(d);
-		
 	}
 
 	public String getComputerName() {
