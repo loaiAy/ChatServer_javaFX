@@ -17,61 +17,61 @@ public class clientController {
 	private Client c;
 	
 	@FXML
-    private TextField textField;
+	private TextField textField;
 
-    @FXML
-    private TextField computerNameField;
+	@FXML
+	private TextField computerNameField;
 
-    @FXML
-    private TextField portNumber;
+	@FXML
+	private TextField portNumber;
 
-    @FXML
-    private Button connect;
+	@FXML
+	private Button connect;
 
-    @FXML
-    private Button disConnect;
+	@FXML
+	private Button disConnect;
 
-    @FXML
-    private TextArea textArea;
-    
-    @FXML
-    void connectPressed(ActionEvent event) {
-    	Socket s = null;
-    	try {
+	@FXML
+	private TextArea textArea;
+
+	@FXML
+	void connectPressed(ActionEvent event) {
+		Socket s = null;
+		try {
 			s = new Socket("127.0.0.1", 7777);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	
-    	computerName = computerNameField.getText();
-    	port = portNumber.getText();
-    	
-    	computerNameField.clear();
-    	portNumber.clear();
-    	
+
+		computerName = computerNameField.getText();
+		port = portNumber.getText();
+
+		computerNameField.clear();
+		portNumber.clear();
+
 		if(port.matches(serverPort)) {
 			Data d = new Data(computerName + " : logging in . . .");
 			Client c = new Client(computerName, port, d);    	
-	    	new ClientThread(s ,this, "127.0.0.1" , c, d).start();
+		new ClientThread(s ,this, "127.0.0.1" , c, d).start();
 		}
 		else {
 			notification();
 		}
-    }
+	}
 
-    @FXML
-    void disConnectPressed(ActionEvent event) {
-    	textField.setDisable(true);
-    }
-        
-    public void notification() {
-    	alert.setTitle("log in");
-    	alert.setHeaderText("error : wrong port.");
-    	alert.setContentText("please connect again to the server ");
-    	alert.showAndWait();
-    }
+	@FXML
+	void disConnectPressed(ActionEvent event) {
+		textField.setDisable(true);
+	}
+
+	public void notification() {
+		alert.setTitle("log in");
+		alert.setHeaderText("error : wrong port.");
+		alert.setContentText("please connect again to the server ");
+		alert.showAndWait();
+	}
 
 	public TextArea getTextArea() {
 		return textArea;
